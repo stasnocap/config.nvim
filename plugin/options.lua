@@ -22,6 +22,6 @@ opt.inccommand = 'split'
 opt.cursorline = true
 opt.scrolloff = 10
 opt.confirm = true
-opt.guicursor = 'n-v-c:block,i-ci-ve:block,r-cr-o:block,sm:block'
+opt.guicursor = ''
 
 -- vim: ts=2 sts=2 sw=2 et
