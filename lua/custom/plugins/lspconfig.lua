@@ -26,28 +26,10 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          local client = vim.lsp.get_client_by_id(event.data.client_id)
-
-          if client.name == 'omnisharp' then
-            map('gd', function()
-              require('omnisharp_extended').telescope_lsp_definition()
-            end, '[G]oto [D]efinition')
-            map('gr', function()
-              require('omnisharp_extended').telescope_lsp_references()
-            end, '[G]oto [R]eferences')
-            map('gi', function()
-              require('omnisharp_extended').telescope_lsp_implementation()
-            end, '[G]oto [I]mplementation')
-            map('<leader>D', function()
-              require('omnisharp_extended').telescope_lsp_type_definition()
-            end, 'Type [D]efinition')
-          else
-            map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-            map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-            map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-            map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-          end
-
+          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+          map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+          map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
           map('<leader>k', vim.lsp.buf.hover, 'Hover Documentation')
           map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
           map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
@@ -86,6 +68,7 @@ return {
             })
           end
 
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
             map('<leader>th', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
@@ -166,4 +149,3 @@ return {
     end,
   },
 }
-

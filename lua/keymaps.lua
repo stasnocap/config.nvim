@@ -125,10 +125,9 @@ vim.keymap.set('n', '<C-u>', '<C-w>k', { desc = 'Window above' })
 vim.keymap.set('n', '<C-e>', '<C-w>j', { desc = 'Window below' })
 vim.keymap.set('n', '<C-i>', '<C-w>l', { desc = 'Next window' })
 vim.keymap.set('n', '<C-S-n>', '<C-w>H', { desc = 'Move window left' })
-vim.keymap.set('n', '<C-S-U>', '<C-w>K', { desc = 'Move window up' })
-vim.keymap.set('n', '<C-S-E>', '<C-w>J', { desc = 'Move window down' })
-vim.keymap.set('n', '<C-S-I>', '<C-w>L', { desc = 'Move window right' })
-vim.keymap.set('n', '<M-w><C-n>', '<nop>', { desc = 'Disable empty buffer spawn' })
+vim.keymap.set('n', '<C-S-u>', '<C-w>K', { desc = 'Move window up' })
+vim.keymap.set('n', '<C-S-e>', '<C-w>J', { desc = 'Move window down' })
+vim.keymap.set('n', '<C-S-i>', '<C-w>L', { desc = 'Move window right' })
 
 --- wtf
 vim.api.nvim_del_keymap('x', 'a%')

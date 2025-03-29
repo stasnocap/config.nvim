@@ -12,6 +12,7 @@ return {
   },
   init = function()
     vim.g.db_ui_use_nerd_fonts = vim.g.have_nerd_font
+    vim.opt.shiftwidth = 2
   end,
 }
 
