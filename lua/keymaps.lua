@@ -134,4 +134,3 @@ vim.api.nvim_del_keymap('x', 'a%')
 vim.keymap.set('n', '<C-z>', '<Nop>')
 
 -- vim: ts=2 sts=2 sw=2 et
-
