@@ -1,10 +1,6 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -120,16 +116,26 @@ vim.keymap.set({ 'n', 'x' }, 'gK', 'K', { desc = 'Original K' })
 vim.keymap.set({ 'n', 'x' }, 'gh', 'K', { desc = 'Alias for K' })
 
 -- Window navigation
-vim.keymap.set('n', '<C-n>', '<C-w>h', { desc = 'Previous window' })
-vim.keymap.set('n', '<C-u>', '<C-w>k', { desc = 'Window above' })
-vim.keymap.set('n', '<C-e>', '<C-w>j', { desc = 'Window below' })
-vim.keymap.set('n', '<C-i>', '<C-w>l', { desc = 'Next window' })
-vim.keymap.set('n', '<C-S-n>', '<C-w>H', { desc = 'Move window left' })
-vim.keymap.set('n', '<C-S-u>', '<C-w>K', { desc = 'Move window up' })
-vim.keymap.set('n', '<C-S-e>', '<C-w>J', { desc = 'Move window down' })
-vim.keymap.set('n', '<C-S-i>', '<C-w>L', { desc = 'Move window right' })
+vim.keymap.set('n', '<C-W>n', '<C-w>h', { desc = 'Previous window' })
+vim.keymap.set('n', '<C-W>u', '<C-w>k', { desc = 'Window above' })
+vim.keymap.set('n', '<C-W>e', '<C-w>j', { desc = 'Window below' })
+vim.keymap.set('n', '<C-W>i', '<C-w>l', { desc = 'Next window' })
+vim.keymap.set('n', '<C-W>N', '<C-w>H', { desc = 'Move window left' })
+vim.keymap.set('n', '<C-W>U>', '<C-w>K', { desc = 'Move window up' })
+vim.keymap.set('n', '<C-W>E>', '<C-w>J', { desc = 'Move window down' })
+vim.keymap.set('n', '<C-W>I>', '<C-w>L', { desc = 'Move window right' })
 
 --- wtf
 vim.keymap.set('n', '<C-z>', '<Nop>')
+
+-- Map Alt+1 to Alt+9 to switch to corresponding tabs
+for i = 1, 9 do
+  vim.api.nvim_set_keymap(
+    'n', -- Normal mode
+    '<M-' .. i .. '>', -- Alt+i (e.g., Alt+1 for tab 1, Alt+2 for tab 2)
+    i .. 'gt', -- Command to go to the i-th tab
+    { noremap = true, silent = true }
+  )
+end
 
 -- vim: ts=2 sts=2 sw=2 et
