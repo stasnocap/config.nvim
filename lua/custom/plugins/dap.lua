@@ -6,6 +6,7 @@ return {
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
     'NicholasMata/nvim-dap-cs',
+    'julianolf/nvim-dap-lldb',
   },
   keys = {
     {
@@ -84,6 +85,9 @@ return {
           disconnect = '⏏',
         },
       },
+      mappings = {
+        edit = 'x',
+      },
     }
 
     vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
@@ -102,5 +106,6 @@ return {
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
     require('dap-cs').setup()
+    require('dap-lldb').setup()
   end,
 }
