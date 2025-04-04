@@ -126,7 +126,7 @@ vim.keymap.set('n', '<C-W>E>', '<C-w>J', { desc = 'Move window down' })
 vim.keymap.set('n', '<C-W>I>', '<C-w>L', { desc = 'Move window right' })
 
 --- wtf
-vim.keymap.set('n', '<C-z>', '<Nop>')
+vim.keymap.set({ 'n', 'x' }, '<C-z>', '<Nop>')
 
 -- Map Alt+1 to Alt+9 to switch to corresponding tabs
 for i = 1, 9 do

@@ -13,6 +13,7 @@ return {
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    { 'dawsers/telescope-file-history.nvim' },
   },
   config = function()
     require('telescope').setup {
@@ -53,6 +54,18 @@ return {
     vim.keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
+
+    require('file_history').setup {
+      backup_dir = '~/.file-history-git',
+      git_cmd = 'git',
+      hostname = nil,
+    }
+    require('telescope').load_extension 'file_history'
+
+    vim.keymap.set('n', '<leader>hb', '<cmd>Telescope file_history backup tag=<CR>', { silent = true })
+    vim.keymap.set('n', '<leader>hh', '<cmd>Telescope file_history history<CR>', { silent = true })
+    vim.keymap.set('n', '<leader>hl', '<cmd>Telescope file_history log<CR>', { silent = true })
+    vim.keymap.set('n', '<leader>hf', '<cmd>Telescope file_history files<CR>', { silent = true })
+    vim.keymap.set('n', '<leader>hq', '<cmd>Telescope file_history query after=<CR>', { silent = true })
   end,
 }
-

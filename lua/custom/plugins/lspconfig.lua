@@ -36,6 +36,12 @@ return {
           map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          vim.keymap.set(
+            { 'i', 'n' },
+            '<C-s>',
+            '<cmd>lua vim.lsp.buf.signature_help()<CR>',
+            { noremap = true, silent = true, buffer = event.buf, desc = 'LSP: [S]ignature Help' }
+          )
 
           local function client_supports_method(client, method, bufnr)
             if vim.fn.has 'nvim-0.11' == 1 then

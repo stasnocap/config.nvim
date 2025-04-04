@@ -58,6 +58,20 @@ return {
       },
     }
 
+    cmp.setup.filetype({ 'javascript' }, {
+      sources = {
+        {
+          name = 'lazydev',
+          group_index = 0,
+        },
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'path' },
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'buffer' },
+      },
+    })
+
     cmp.setup.filetype({ 'sql', 'mysql', 'plsql' }, {
       sources = {
         { name = 'vim-dadbod-completion' },
