@@ -53,11 +53,5 @@ return {
     vim.keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
-
-    vim.keymap.set('n', '<leader>hb', '<cmd>Telescope file_history backup tag=<CR>', { silent = true })
-    vim.keymap.set('n', '<leader>hh', '<cmd>Telescope file_history history<CR>', { silent = true })
-    vim.keymap.set('n', '<leader>hl', '<cmd>Telescope file_history log<CR>', { silent = true })
-    vim.keymap.set('n', '<leader>hf', '<cmd>Telescope file_history files<CR>', { silent = true })
-    vim.keymap.set('n', '<leader>hq', '<cmd>Telescope file_history query after=<CR>', { silent = true })
   end,
 }
