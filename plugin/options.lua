@@ -4,9 +4,6 @@ opt.number = true
 opt.relativenumber = true
 opt.mouse = 'a'
 opt.showmode = false
-vim.schedule(function()
-  opt.clipboard = 'unnamedplus'
-end)
 opt.breakindent = true
 opt.undofile = true
 opt.ignorecase = true

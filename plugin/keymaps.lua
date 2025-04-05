@@ -1,6 +1,5 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -9,6 +8,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 vim.keymap.set('n', 'J', 'mzJ`z')
+vim.keymap.set('v', '<C-c>', '"+y', { noremap = true, silent = true })
 vim.keymap.set('x', '<leader>v', '"_dp')
 
 -- Up/down/left/right
@@ -124,6 +124,8 @@ vim.keymap.set('n', '<C-W>N', '<C-w>H', { desc = 'Move window left' })
 vim.keymap.set('n', '<C-W>U>', '<C-w>K', { desc = 'Move window up' })
 vim.keymap.set('n', '<C-W>E>', '<C-w>J', { desc = 'Move window down' })
 vim.keymap.set('n', '<C-W>I>', '<C-w>L', { desc = 'Move window right' })
+-- Disable spawning empty buffer
+vim.keymap.set('n', '<C-W><C-n>', '<nop>')
 
 --- wtf
 vim.keymap.set({ 'n', 'x' }, '<C-z>', '<Nop>')
