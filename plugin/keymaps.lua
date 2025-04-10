@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 vim.keymap.set('n', 'J', 'mzJ`z')
 vim.keymap.set('v', '<C-c>', '"+y', { noremap = true, silent = true })
-vim.keymap.set('x', '<leader>v', '"_dp')
+vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
 
 -- Up/down/left/right
 vim.keymap.set({ 'n', 'o', 'x' }, 'n', 'h', { desc = 'Left (h)' })

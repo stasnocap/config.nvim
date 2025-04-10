@@ -19,7 +19,6 @@ opt.inccommand = 'split'
 opt.cursorline = true
 opt.scrolloff = 10
 opt.confirm = true
-vim.opt.guicursor = ''
 vim.opt.guicursor = "n-v-c-i-r-sm:block-blinkon250"
 
 -- vim: ts=2 sts=2 sw=2 et
