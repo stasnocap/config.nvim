@@ -21,6 +21,7 @@ return {
       html = { 'html_beautify' },
       css = { 'css_beautify' },
       scss = { 'css_beautify' },
+      json = { 'jq' },
     },
   },
 }
