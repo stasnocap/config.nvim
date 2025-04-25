@@ -29,7 +29,15 @@ return {
         -- needed if i did not set the branch up correctly
         vim.keymap.set('n', '<leader>t', ':Git push -u origin ', opts)
 
-        vim.keymap.set({ 'n', 'o', 'x' }, 'u', 'k', opts)
+        -- vim.keymap.set({ 'n', 'o', 'x' }, 'u', 'k', opts)
+      end,
+    })
+
+    autocmd('User', {
+      group = stasnocap_Fugitive,
+      pattern = 'FugitiveIndex',
+      callback = function()
+        vim.keymap.set({ 'n', 'o', 'x' }, 'u', 'k', { buffer = true, remap = false })
       end,
     })
 
