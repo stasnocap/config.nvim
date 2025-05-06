@@ -60,6 +60,8 @@ vim.keymap.set({ 'o', 'v' }, 'R', 'r', { desc = 'Replace' })
 
 -- Folds
 vim.keymap.set({ 'n', 'x' }, 'b', 'z', { desc = 'Folding prefix' })
+vim.keymap.set({ 'n', 'x' }, 'bn', 'zH', { desc = 'Scroll left' })
+vim.keymap.set({ 'n', 'x' }, 'bi', 'zL', { desc = 'Scroll right' })
 vim.keymap.set({ 'n', 'x' }, 'bb', 'zb', { desc = 'Scroll line and cursor to bottom' })
 vim.keymap.set({ 'n', 'x' }, 'bu', 'zk', { desc = 'Move up to fold' })
 vim.keymap.set({ 'n', 'x' }, 'be', 'zj', { desc = 'Move down to fold' })
