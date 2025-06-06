@@ -21,8 +21,13 @@ return {
       html = { 'html_beautify' },
       css = { 'css_beautify' },
       scss = { 'css_beautify' },
-      json = { 'jq' },
+      json = { 'json_beautify' },
+    },
+    formatters = {
+      json_beautify = {
+        command = 'js-beautify',
+        args = { '--file', '-', '-s', '2' },
+      },
     },
   },
 }
-
