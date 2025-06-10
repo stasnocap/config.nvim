@@ -20,6 +20,8 @@ opt.cursorline = true
 opt.scrolloff = 10
 opt.confirm = true
 opt.wrap = true
-vim.opt.guicursor = "n-v-c-i-r-sm:block-blinkon250"
+opt.guicursor = "n-v-c-i-r-sm:block-blinkon250"
+opt.encoding = "utf-8"
+opt.fileencodings = {  "utf-8", "cp1251" }
 
 -- vim: ts=2 sts=2 sw=2 et
