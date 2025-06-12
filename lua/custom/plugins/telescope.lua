@@ -33,21 +33,6 @@ return {
     vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-    vim.keymap.set('n', '<leader>sG', function()
-      local pattern = vim.fn.input('Glob pattern: ', '', 'file')
-
-      -- Prevent search if pattern is empty
-      if pattern == nil or pattern == '' then
-        print 'No pattern selected. Search aborted.'
-        return
-      end
-
-      require('telescope.builtin').live_grep {
-        additional_args = function()
-          return { '--glob', pattern }
-        end,
-      }
-    end, { desc = '[S]earch by [G]rep with Glob' })
 
     vim.keymap.set('n', '<leader>sf', function()
       local handle = io.popen 'fd --type d'
@@ -88,6 +73,22 @@ return {
         })
         :find()
     end, { desc = '[S]elect folder for grep search' })
+
+    vim.keymap.set('n', '<leader>sp', function()
+      local pattern = vim.fn.input('Glob pattern: ', '', 'file')
+
+      -- Prevent search if pattern is empty
+      if pattern == nil or pattern == '' then
+        print 'No pattern selected. Search aborted.'
+        return
+      end
+
+      require('telescope.builtin').live_grep {
+        additional_args = function()
+          return { '--glob', pattern }
+        end,
+      }
+    end, { desc = '[S]earch by [G]rep with Glob' })
 
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
