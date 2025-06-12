@@ -38,7 +38,7 @@ return {
 
       -- Prevent search if pattern is empty
       if pattern == nil or pattern == '' then
-        print("No pattern selected. Search aborted.")
+        print 'No pattern selected. Search aborted.'
         return
       end
 
@@ -48,19 +48,47 @@ return {
         end,
       }
     end, { desc = '[S]earch by [G]rep with Glob' })
-    vim.keymap.set('n', '<leader>sf', function()
-      local folder = vim.fn.input('Folder path: ', vim.fn.getcwd(), 'file')
 
-      -- Prevent search if folder is empty
-      if folder == nil or folder == '' then
-        print("No folder selected. Search aborted.")
+    vim.keymap.set('n', '<leader>sf', function()
+      local handle = io.popen 'fd --type d'
+      local result = handle:read '*a'
+      handle:close()
+
+      local folders = vim.split(result, '\n')
+      if #folders == 0 then
+        print 'No folders found!'
         return
       end
 
-      require('telescope.builtin').live_grep {
-        search_dirs = { folder },
-      }
-    end, { desc = '[S]earch by [G]rep in Folder' })
+      require('telescope.pickers')
+        .new({}, {
+          prompt_title = 'Select Folder',
+          finder = require('telescope.finders').new_table { results = folders },
+          sorter = require('telescope.config').values.generic_sorter {},
+          attach_mappings = function(prompt_bufnr, map)
+            map('i', '<CR>', function()
+              local selected = require('telescope.actions.state').get_selected_entry()
+              local folder = selected and selected.value or vim.fn.getcwd()
+
+              if folder and vim.fn.isdirectory(folder) == 1 then
+                require('telescope.builtin').live_grep { search_dirs = { folder } }
+              else
+                print 'Please select a valid folder.'
+                return
+              end
+
+              -- Safely access the picker before closing
+              local picker = require('telescope.actions.state').get_current_picker(prompt_bufnr)
+              if picker then
+                require('telescope.actions').close(prompt_bufnr)
+              end
+            end)
+            return true
+          end,
+        })
+        :find()
+    end, { desc = '[S]elect folder for grep search' })
+
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
@@ -84,4 +112,3 @@ return {
     end, { desc = '[S]earch [N]eovim files' })
   end,
 }
-
