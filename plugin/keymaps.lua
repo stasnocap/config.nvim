@@ -9,6 +9,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 vim.keymap.set('n', 'J', 'mzJ`z')
 vim.keymap.set('v', '<C-c>', '"+y', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>cp', function()
+  local file_path = vim.api.nvim_buf_get_name(0)
+  vim.fn.setreg('+', file_path) -- Copies to system clipboard
+  print("Copied file path: " .. file_path)
+end, { desc = "Copy current file path to clipboard" })
 vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
 
 -- Up/down/left/right
