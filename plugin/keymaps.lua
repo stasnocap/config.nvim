@@ -97,6 +97,7 @@ vim.keymap.set({ 'n', 'x' }, 'W', 'C', { desc = 'Change to end of line' })
 vim.keymap.set({ 'n', 'x' }, 'a', 'v', { desc = 'Visual mode' })
 vim.keymap.set({ 'n', 'x' }, 'A', 'V', { desc = 'Line-wise visual mode' })
 vim.keymap.set('v', 'S', 'I', { desc = 'Insert in visual mode' })
+vim.keymap.set('v', 'T', 'A', { desc = 'Append in visual mode' })
 
 -- Search
 vim.keymap.set({ 'n', 'o', 'x' }, 'k', 'nzzzv', { desc = 'Next search result' })
