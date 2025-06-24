@@ -78,5 +78,11 @@ return {
         { name = 'buffer' },
       },
     })
+
+    cmp.setup.filetype('md', {
+      sources = cmp.config.sources {
+        { name = 'render-markdown' },
+      },
+    })
   end,
 }
