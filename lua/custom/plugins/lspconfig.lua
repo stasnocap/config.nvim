@@ -119,6 +119,7 @@ return {
         ts_ls = {},
         cssls = {},
         html = {},
+        pyright = {},
         lua_ls = {
           settings = {
             Lua = {
