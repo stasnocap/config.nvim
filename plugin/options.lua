@@ -1,28 +1,28 @@
-local opt = vim.opt
+local o = vim.o
 
-opt.number = true
-opt.relativenumber = true
-opt.mouse = 'a'
-opt.showmode = false
-opt.breakindent = true
-opt.undofile = true
-opt.ignorecase = true
-opt.smartcase = true
-opt.signcolumn = 'yes'
-opt.updatetime = 250
-opt.timeoutlen = 300
-opt.splitright = true
-opt.splitbelow = true
-opt.list = true
-opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-opt.inccommand = 'split'
-opt.cursorline = true
-opt.scrolloff = 10
-opt.confirm = true
-opt.wrap = true
-opt.guicursor = "n-v-c-i-r-sm:block-blinkon250-blinkoff250"
-opt.encoding = "utf-8"
-opt.fileencodings = {  "utf-8", "cp1251" }
-opt.expandtab = true
+o.number = true
+o.relativenumber = true
+o.mouse = 'a'
+o.showmode = false
+o.breakindent = true
+o.undofile = true
+o.ignorecase = true
+o.smartcase = true
+o.signcolumn = 'yes'
+o.updatetime = 250
+o.timeoutlen = 300
+o.splitright = true
+o.splitbelow = true
+o.list = true
+o.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+o.inccommand = 'split'
+o.cursorline = true
+o.scrolloff = 10
+o.confirm = true
+o.wrap = true
+o.guicursor = "n-v-c-i-r-sm:block-blinkon250-blinkoff250"
+o.encoding = "utf-8"
+o.fileencodings = {  "utf-8", "cp1251" }
+o.expandtab = true
 
 -- vim: ts=2 sts=2 sw=2 et
