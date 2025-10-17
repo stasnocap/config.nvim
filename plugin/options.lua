@@ -24,5 +24,6 @@ o.guicursor = "n-v-c-i-r-sm:block-blinkon250-blinkoff250"
 o.encoding = "utf-8"
 o.fileencodings = {  "utf-8", "cp1251" }
 o.expandtab = true
+o.tabstop = 4
 
 -- vim: ts=2 sts=2 sw=2 et
