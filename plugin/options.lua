@@ -26,7 +26,9 @@ o.fileencodings = {  "utf-8", "cp1251" }
 o.expandtab = true
 o.tabstop = 4
 
+o.swapfile = false
+o.updatetime = 50
 o.lazyredraw = true
-z.ttyfast = true
+o.ttyfast = true
 
 -- vim: ts=2 sts=2 sw=2 et
