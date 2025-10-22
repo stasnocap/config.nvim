@@ -136,6 +136,9 @@ vim.keymap.set('n', '<C-W>I>', '<C-w>L', { desc = 'Move window right' })
 -- Disable spawning empty buffer
 vim.keymap.set('n', '<C-W><C-n>', '<nop>')
 
+-- New line up
+vim.keymap.set('i', '<A-CR>', '<Esc>O', { noremap = true, silent = true })
+
 --- wtf
 vim.keymap.set({ 'n', 'x' }, '<C-z>', '<Nop>')
 
