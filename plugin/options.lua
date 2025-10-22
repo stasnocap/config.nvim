@@ -27,6 +27,8 @@ o.expandtab = true
 o.tabstop = 4
 
 o.swapfile = false
+o.backup = false
+
 o.updatetime = 50
 o.lazyredraw = true
 o.ttyfast = true
