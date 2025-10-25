@@ -7,6 +7,8 @@ return {
         'NormalFloat',
         'FloatBorder',
         'TelescopeTitle',
+        'GrappleTitle',
+        'GrappleFooter',
       },
     }
     transparent.clear_prefix 'lualine'
