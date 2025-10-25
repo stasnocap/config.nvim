@@ -6,6 +6,7 @@ return {
       extra_groups = {
         'NormalFloat',
         'FloatBorder',
+        'TelescopeTitle',
       },
     }
     transparent.clear_prefix 'lualine'
