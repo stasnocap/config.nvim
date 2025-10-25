@@ -5,6 +5,7 @@ return {
     transparent.setup {
       extra_groups = {
         'NormalFloat',
+        'FloatBorder',
       },
     }
     transparent.clear_prefix 'lualine'
